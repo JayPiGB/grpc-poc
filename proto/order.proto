@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+
+package poc.order;
+
+
+import "google/protobuf/timestamp.proto";
+
+
+message Order {
+string id = 1;
+string user_id = 2;
+string user_name_snapshot = 3; // denormalização simples
+repeated string items = 4;
+double total = 5;
+google.protobuf.Timestamp created_at = 6;
+}
+
+
+message CreateOrderRequest {
+string user_id = 1;
+repeated string items = 2;
+double total = 3;
+}
+
+
+message GetOrderRequest { string id = 1; }
+message ListOrdersRequest { optional string user_id = 1; }
+message ListOrdersResponse { repeated Order orders = 1; }
+
+
+service OrderService {
+rpc CreateOrder(CreateOrderRequest) returns (Order);
+rpc GetOrder(GetOrderRequest) returns (Order);
+rpc ListOrders(ListOrdersRequest) returns (ListOrdersResponse);
+}

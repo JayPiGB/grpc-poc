@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+
+package poc.report;
+
+
+message UserOrdersReportRequest { string user_id = 1; }
+
+
+message UserOrdersReportResponse {
+string user_id = 1;
+string user_name = 2;
+string user_email = 3;
+int32 orders_count = 4;
+double orders_total = 5;
+}
+
+
+message TopUsersByOrdersRequest { int32 top_n = 1; }
+
+
+message TopUsersByOrdersResponse {
+message Entry {
+string user_id = 1;
+string user_name = 2;
+int32 orders_count = 3;
+double orders_total = 4;
+}
+repeated Entry entries = 1;
+}
+
+
+service ReportService {
+rpc GetUserOrdersReport(UserOrdersReportRequest) returns (UserOrdersReportResponse);
+rpc GetTopUsersByOrders(TopUsersByOrdersRequest) returns (TopUsersByOrdersResponse);
+}
