@@ -1,4 +1,4 @@
-# 🧩 gRPC POC — Python Microservices Architecture
+# gRPC POC — Python Microservices Architecture
 
 Este repositório demonstra uma arquitetura de **microserviços distribuídos** que se comunicam **somente via gRPC**. 
 
@@ -6,7 +6,7 @@ Cada serviço é independente e utiliza **Protocol Buffers (`.proto`)** para def
 
 ---
 
-## 🧱 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 grpc-poc/
@@ -41,34 +41,34 @@ grpc-poc/
 
 ---
 
-## ⚙️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 | Tecnologia | Função |
 |-------------|--------|
-| 🐍 Python 3.11+ | Linguagem base |
-| 💬 gRPC | Comunicação entre microserviços |
-| 📦 Protocol Buffers | Definição dos contratos `.proto` |
-| 🧰 grpcio-tools | Geração de código cliente/servidor |
-| 🪟 PowerShell | Automação no Windows (`build.ps1`) |
+|  Python 3.11+ | Linguagem base |
+|  gRPC | Comunicação entre microserviços |
+|  Protocol Buffers | Definição dos contratos `.proto` |
+|  grpcio-tools | Geração de código cliente/servidor |
+|  PowerShell | Automação no Windows (`build.ps1`) |
 
 ---
 
-## 🚀 Execução (Windows)
+## Execução (Windows)
 
-### 1️⃣ Clonar o repositório
+### Clonar o repositório
 ```powershell
 git clone https://github.com/SEU_USUARIO/grpc-poc.git
 cd grpc-poc
 ```
 
-### 2️⃣ Criar ambiente virtual
+### Criar ambiente virtual
 ```powershell
 py -3.11 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
-### 3️⃣ Rodar o script de build e execução
+### Rodar o script de build e execução
 ```powershell
 .uild.ps1
 ```
@@ -84,22 +84,22 @@ Escolha o serviço desejado:
 
 ---
 
-## 🧑‍💼 Serviços
+## Serviços
 
-### 🧑‍💼 UserService (porta 50051)
+### UserService (porta 50051)
 - CRUD simples de usuários (em memória)
 
-### 📦 OrderService (porta 50052)
+### OrderService (porta 50052)
 - Cria e lista pedidos
 - Consulta usuários via gRPC (UserService)
 
-### 📊 ReportService (porta 50053)
+### ReportService (porta 50053)
 - Gera relatórios combinando usuários e pedidos
 - Consulta ambos via gRPC
 
 ---
 
-## 💻 Cliente de Demonstração
+## Cliente de Demonstração
 
 ### Execução
 ```powershell
@@ -116,17 +116,17 @@ Top: Bob | count=1 total=80.0
 
 ---
 
-## 🧠 Conceitos Demonstrados
+## Com isso, conseguimos confirmar:
 
-✅ Comunicação entre serviços via **Remote Procedure Calls (RPC)**  
-✅ Contratos `.proto` como fonte única da verdade  
-✅ Desacoplamento e isolamento entre domínios  
-✅ Uso de *stubs* e *servicers* gerados automaticamente  
-✅ Execução multiplataforma (Windows / Linux / macOS)
+- Comunicação entre serviços via **Remote Procedure Calls (RPC)**  
+- Contratos `.proto` como fonte única da verdade  
+- Desacoplamento e isolamento entre domínios  
+- Uso de *stubs* e *servicers* gerados automaticamente  
+- Execução multiplataforma (Windows / Linux / macOS)
 
 ---
 
-## 🛠️ Manutenção
+## Manutenção
 
 Gerar novamente os stubs gRPC:
 ```bash
