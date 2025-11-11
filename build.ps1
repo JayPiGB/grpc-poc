@@ -32,7 +32,7 @@ python -m grpc_tools.protoc `
   proto\user.proto proto\order.proto proto\report.proto
 
 if ($LASTEXITCODE -ne 0) {
-    Write-Host "❌ Erro ao gerar stubs .proto" -ForegroundColor Red
+    Write-Host "Erro ao gerar stubs .proto" -ForegroundColor Red
     exit 1
 }
 
@@ -50,22 +50,22 @@ $opt = Read-Host "Digite a opção (1-4)"
 
 switch ($opt) {
     1 {
-        Write-Host "🚀 Iniciando UserService..."
+        Write-Host "Iniciando UserService..."
         python -m services.user_service
     }
     2 {
-        Write-Host "🚀 Iniciando OrderService..."
+        Write-Host "Iniciando OrderService..."
         $env:USERSVC_ADDR = "localhost:50051"
         python -m services.order_service
     }
     3 {
-        Write-Host "🚀 Iniciando ReportService..."
+        Write-Host "Iniciando ReportService..."
         $env:USERSVC_ADDR = "localhost:50051"
         $env:ORDERSVC_ADDR = "localhost:50052"
         python -m services.report_service
     }
     4 {
-        Write-Host "🧪 Executando cliente de demonstração..."
+        Write-Host "Executando cliente de demonstração..."
         # Tenta como pacote:
         try {
             python -m clients.demo
@@ -75,7 +75,7 @@ switch ($opt) {
         }
     }
     Default {
-        Write-Host "❌ Opção inválida. Saindo..." -ForegroundColor Yellow
+        Write-Host "Opção inválida. Saindo..." -ForegroundColor Yellow
         exit 0
     }
 }
